@@ -18,6 +18,8 @@
   "homepage": "https://github.com/mattlamberti/server-side-crypto-wallet#readme",
   "dependencies": {
     "axios": "^0.24.0",
-    "express": "^4.17.2"
+    "express": "^4.17.2",
+    "joi": "^17.5.0",
+    "mongoose": "^6.1.5"
   }
 }
