@@ -1,6 +1,6 @@
 const Joi = require ("joi");
 const bcrypt = require ("bcrypt");
-const {Utente} = require ('../models/utente');
+const { Utente } = require ("../models/utente");
 const express = require ("express");
 const router = express.Router ();
 
@@ -11,6 +11,8 @@ router.post ("/", async (req, res) => {
 
     let utente = await Utente.findOne ({ email: req.body.email });
     if (!utente) return res.status (400).send ("Email o password non validi.");
+
+    console.log (utente);
 
     const passwordValida = await bcrypt.compare (req.body.password, utente.password);
     if (!passwordValida) return res.status (400).send ("Email o password non validi.");

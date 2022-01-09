@@ -1,18 +1,11 @@
 const bcrypt = require ("bcrypt");
-const {Utente, valida} = require ("../models/utente");
+const { Utente, valida } = require ("../models/utente");
 const express = require ("express");
 const router = express.Router ();
 
-router.get ("/me", async (req, res) => {
-
-    const utente = await Utente.findById (req.utente._id).select ("-password");
-    res.send (utente);
-
-});
-
 router.post ("/", async (req, res) => {
 
-    const { error } = valida (req.body); 
+    const { error } = valida (req.body);
     if (error) return res.status (400).send (error.details [0].message);
 
     let utente = await Utente.findOne ({ email: req.body.email });

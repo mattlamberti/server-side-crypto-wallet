@@ -36,7 +36,7 @@ const schemaUtente = new mongoose.Schema ({
 //aggiunta di un "instance method" che sarà disponibile per tutti gli oggetti della classe Utente
 schemaUtente.methods.generaAuthToken = function () {
 
-    const token = jwt.sign ({ _id: this._id }, config.get ("jwtPrivateKey"));
+    const token = jwt.sign ({ _id: this._id, nome: this.nome, email: this.email }, config.get ("jwtPrivateKey"));
     return token;
 
 }

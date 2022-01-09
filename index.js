@@ -2,7 +2,6 @@ const express = require ("express");
 const app = express ();
 
 require ("./start/db") ();
-require ("./start/crypto") ();
 require ("./start/config") ();
 require ("./start/routes") (app);
 
