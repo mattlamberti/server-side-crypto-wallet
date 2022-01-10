@@ -1,5 +1,5 @@
 const { Utente } = require ("../../../models/utente");
-const request = require ("supertest"); //libreria a supporto per inviare richieste HTTP in modo automatico senza l'ausilio di tool come Postman.
+const richiesta = require ("supertest"); //libreria a supporto per inviare richieste HTTP in modo automatico senza l'ausilio di tool come Postman.
 
 describe ("Middleware per l'autorizzazione", () => {
 
@@ -20,7 +20,7 @@ describe ("Middleware per l'autorizzazione", () => {
 
     const exec = () => {
 
-        return request (server)
+        return richiesta (server)
             .post ("/api/wallets")
             .set ("x-auth-token", token)
             .send ({ utente: "61d5b52730c7b16122afef87", nome: "Bitcoin", simbolo: "BTC", quantita: 10, prezzoPerUnita: 10 });
